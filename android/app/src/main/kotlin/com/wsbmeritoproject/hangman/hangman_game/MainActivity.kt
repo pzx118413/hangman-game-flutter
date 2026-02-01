@@ -1,0 +1,5 @@
+package com.wsbmeritoproject.hangman.hangman_game
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
