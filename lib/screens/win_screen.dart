@@ -48,23 +48,52 @@ class _WinScreenState extends State<WinScreen> {
             right: 0,
             child: Column(
               children: [
+                // PLAY AGAIN BUTTON
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Image.asset(
-                    'assets/images/Property1=Default.png',
-                    height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/Property1=Default.png',
+                        height: 50,
+                      ),
+                      const Text(
+                        'PLAY AGAIN',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 16),
+                
+                // QUIT BUTTON
                 GestureDetector(
                   onTap: () {
                     Navigator.popUntil(context, (r) => r.isFirst);
                   },
-                  child: Image.asset(
-                    'assets/images/Property1=Quit.png',
-                    height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/Property1=Quit.png',
+                        height: 50,
+                      ),
+                      const Text(
+                        'QUIT',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
