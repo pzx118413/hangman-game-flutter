@@ -7,21 +7,19 @@ class LoseScreen extends StatefulWidget {
   @override
   State<LoseScreen> createState() => _LoseScreenState();
 }
-
 class _LoseScreenState extends State<LoseScreen> {
   @override
   void initState() {
     super.initState();
     SoundManager.playLose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red.shade400,
       body: Stack(
         children: [
-          // FACE + TEXT
+          // YOU LOST
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -42,33 +40,56 @@ class _LoseScreenState extends State<LoseScreen> {
               ],
             ),
           ),
-
-          // BUTTONS
           Positioned(
             bottom: 120,
             left: 0,
             right: 0,
             child: Column(
               children: [
-                // REPLAY
+                // TRY AGAIN
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Image.asset(
-                    'assets/images/Property1=Default.png',
-                    height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/Property1=Default.png',
+                        height: 50,
+                      ),
+                      const Text(
+                        'TRY AGAIN',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 16),
-                // QUIT
                 GestureDetector(
                   onTap: () {
                     Navigator.popUntil(context, (r) => r.isFirst);
                   },
-                  child: Image.asset(
-                    'assets/images/Property1=Quit.png',
-                    height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/Property1=Quit.png',
+                        height: 50,
+                      ),
+                      const Text(
+                        'QUIT',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
